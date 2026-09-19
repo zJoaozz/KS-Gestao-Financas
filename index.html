@@ -75,7 +75,7 @@
     <section class="hero section--dark" id="inicio">
       <div class="hero__grid" aria-hidden="true"></div>
 
-      <svg class="hero__chart" viewBox="0 0 1200 520" aria-hidden="true" focusable="false">
+      <svg class="hero__chart" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="chartGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
             <stop offset="0" stop-color="#3a63c9"/>
@@ -83,7 +83,7 @@
             <stop offset="1" stop-color="#cfae74"/>
           </linearGradient>
         </defs>
-        <path class="hero__chart-line" pathLength="1"
+        <path class="hero__chart-line"
               d="M0 470 L150 425 L270 445 L410 350 L530 375 L670 265 L790 295 L950 165 L1070 185 L1190 55"/>
       </svg>
 
@@ -287,16 +287,25 @@
 
           <ul class="contact__list">
             <li>
-              <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-              <a data-wa href="#" target="_blank" rel="noopener">WhatsApp: <span data-wa-display>(86) 98816-4496</span></a>
+              <span class="ledger__icon"><svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+              <a data-wa href="#" target="_blank" rel="noopener">
+                <span class="contact__label">WhatsApp</span>
+                <strong data-wa-display>(86) 98816-4496</strong>
+              </a>
             </li>
             <li hidden data-contact-instagram>
-              <svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg>
-              <a href="#" target="_blank" rel="noopener">Instagram: <span data-instagram-display></span></a>
+              <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+              <a href="#" target="_blank" rel="noopener">
+                <span class="contact__label">Instagram</span>
+                <strong data-instagram-display></strong>
+              </a>
             </li>
             <li hidden data-contact-email>
-              <svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>
-              <a href="#">E-mail: <span data-email-display></span></a>
+              <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <a href="#">
+                <span class="contact__label">E-mail</span>
+                <strong data-email-display></strong>
+              </a>
             </li>
           </ul>
         </div>
