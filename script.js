@@ -61,6 +61,29 @@ function iniciarContatosOpcionais() {
   }
 }
 
+/* ---------- Botão flutuante: some com o menu aberto, no botão do início e sobre o formulário ---------- */
+const estadoFlutuante = { menu: false, formulario: false, inicio: false };
+
+function atualizarFlutuante() {
+  const botao = document.querySelector(".wa-float");
+  botao.classList.toggle("is-hidden", estadoFlutuante.menu || estadoFlutuante.formulario || estadoFlutuante.inicio);
+}
+
+function iniciarBotaoFlutuante() {
+  const observar = (elemento, chave, margem) => {
+    new IntersectionObserver(
+      ([entrada]) => {
+        estadoFlutuante[chave] = entrada.isIntersecting;
+        atualizarFlutuante();
+      },
+      { rootMargin: margem }
+    ).observe(elemento);
+  };
+  // Sobre o formulário e sobre o botão do início já existe outro botão de WhatsApp na tela
+  observar(document.getElementById("form-contato"), "formulario", "0px 0px -80px 0px");
+  observar(document.querySelector(".hero__actions .btn--gold"), "inicio", "-72px 0px 0px 0px");
+}
+
 /* ---------- Cabeçalho e menu ---------- */
 function iniciarCabecalho() {
   const header = document.querySelector(".site-header");
@@ -75,6 +98,9 @@ function iniciarCabecalho() {
 
   const definirAberto = (aberto) => {
     header.classList.toggle("is-open", aberto);
+    document.documentElement.classList.toggle("menu-open", aberto);
+    estadoFlutuante.menu = aberto;
+    atualizarFlutuante();
     botao.setAttribute("aria-expanded", String(aberto));
     botao.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
   };
@@ -202,6 +228,7 @@ document.getElementById("ano").textContent = new Date().getFullYear();
 iniciarWhatsApp();
 iniciarContatosOpcionais();
 iniciarCabecalho();
+iniciarBotaoFlutuante();
 iniciarFormulario();
 iniciarDepoimentos();
 iniciarDicas();
