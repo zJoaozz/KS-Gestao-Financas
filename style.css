@@ -470,8 +470,53 @@ html.menu-open { overflow: hidden; }
   margin-top: clamp(2rem, 4vw, 3rem);
 }
 .services-cta p { max-width: 30rem; color: var(--on-dark-soft); }
+.section--light .services-cta p,
+.section--mist .services-cta p { color: var(--ink-soft); }
 @media (min-width: 800px) {
   .services-cta { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+
+/* ==========================================================
+   Redes sociais
+   ========================================================== */
+.social {
+  display: grid;
+  gap: 2rem;
+  align-items: start;
+}
+.social__list h3 { color: var(--ink); }
+
+.checklist { display: grid; gap: 1rem; margin-top: 1.25rem; }
+.checklist li {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 0.85rem;
+  align-items: start;
+}
+.checklist .icon { margin-top: 0.15rem; color: var(--gold-deep); }
+.checklist span { font-size: 0.98rem; line-height: 1.55; color: var(--ink-soft); }
+
+.social__highlight {
+  padding: clamp(1.75rem, 4vw, 2.5rem);
+  background: var(--navy-900);
+  color: var(--on-dark);
+  border-radius: 16px;
+  border-left: 3px solid var(--gold);
+}
+.social__highlight h3 { color: var(--gold); }
+.social__highlight p { margin-top: 0.85rem; color: var(--on-dark-soft); }
+
+.social__mission {
+  max-width: 46rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: clamp(2rem, 4vw, 3rem);
+  border-top: 1px solid var(--line-light);
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 860px) {
+  .social { grid-template-columns: 1.2fr 1fr; gap: 4rem; }
 }
 
 /* ==========================================================
