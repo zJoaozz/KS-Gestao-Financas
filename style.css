@@ -430,9 +430,11 @@ html.menu-open { overflow: hidden; }
 }
 .hero__text { min-width: 0; }
 
+/* Teto em 3.9rem: é onde "para MEIs, pequenos" cabe inteiro na coluna,
+   deixando as três últimas linhas parelhas em vez de picadas. */
 .hero__title {
-  max-width: 16em;
-  font-size: clamp(2.15rem, 1.1rem + 4.6vw, 4.1rem);
+  max-width: 14em;
+  font-size: clamp(2.15rem, 1.1rem + 4.6vw, 3.9rem);
   line-height: 1.07;
   letter-spacing: -0.022em;
   word-spacing: 0.05em;
@@ -527,8 +529,13 @@ html.menu-open { overflow: hidden; }
   .hero__actions { flex-direction: column; align-items: stretch; }
   .hero__actions .btn { width: 100%; }
 }
-@media (min-width: 900px) {
-  .hero__inner { grid-template-columns: 1.15fr 0.85fr; }
+/* Lado a lado só quando sobra largura de verdade: abaixo disso a coluna de
+   texto fica estreita para o Manrope e o título quebra em fatias curtas. */
+@media (min-width: 1150px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr);
+    gap: 2.5rem;
+  }
 }
 
 /* Faixa de diferenciais */
