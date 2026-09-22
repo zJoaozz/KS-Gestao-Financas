@@ -1,5 +1,5 @@
 /* ==========================================================
-   KS Gestão e Finanças — comportamento da página
+   KS Gestão e Finanças — comportamento da página (redesign v2)
    Tudo que muda com frequência está em CONFIG, DEPOIMENTOS e DICAS.
    ========================================================== */
 
@@ -26,6 +26,8 @@ const DEPOIMENTOS = [];
    { titulo: "Título", resumo: "Resumo curto.", data: "2026-09-20", link: "https://..." }
    O campo "link" é opcional. */
 const DICAS = [];
+
+const semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 /* ---------- WhatsApp ---------- */
 function linkWhatsApp(mensagem) {
@@ -81,7 +83,7 @@ function iniciarBotaoFlutuante() {
   };
   // Sobre o formulário e sobre o botão do início já existe outro botão de WhatsApp na tela
   observar(document.getElementById("form-contato"), "formulario", "0px 0px -80px 0px");
-  observar(document.querySelector(".hero__actions .btn--gold"), "inicio", "-72px 0px 0px 0px");
+  observar(document.querySelector(".hero__actions .btn--gold"), "inicio", "-68px 0px 0px 0px");
 }
 
 /* ---------- Cabeçalho e menu ---------- */
@@ -120,9 +122,68 @@ function iniciarCabecalho() {
     }
   });
 
-  window.matchMedia("(min-width: 900px)").addEventListener("change", (e) => {
+  window.matchMedia("(min-width: 940px)").addEventListener("change", (e) => {
     if (e.matches) definirAberto(false);
   });
+}
+
+/* ---------- Marca no menu a seção que está na tela ---------- */
+function iniciarSecaoAtiva() {
+  const links = new Map();
+  document.querySelectorAll('.nav__list a[href^="#"]').forEach((link) => {
+    const alvo = document.getElementById(link.getAttribute("href").slice(1));
+    if (alvo) links.set(alvo, link);
+  });
+  if (!links.size) return;
+
+  const visiveis = new Set();
+  const atualizar = () => {
+    let atual = null;
+    links.forEach((_, secao) => {
+      if (visiveis.has(secao) && (!atual || secao.offsetTop < atual.offsetTop)) atual = secao;
+    });
+    links.forEach((link, secao) => link.classList.toggle("is-active", secao === atual));
+  };
+
+  const observador = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) visiveis.add(e.target);
+        else visiveis.delete(e.target);
+      });
+      atualizar();
+    },
+    { rootMargin: "-40% 0px -50% 0px" }
+  );
+  links.forEach((_, secao) => observador.observe(secao));
+}
+
+/* ---------- Entrada suave dos blocos ao rolar ---------- */
+function iniciarEntradas() {
+  const alvos = document.querySelectorAll(".reveal");
+  if (semMovimento.matches || !("IntersectionObserver" in window)) {
+    alvos.forEach((el) => el.classList.add("is-in"));
+    return;
+  }
+
+  // Itens de uma mesma lista entram em cascata curta
+  document.querySelectorAll(".ledger, .checklist").forEach((lista) => {
+    [...lista.children].forEach((item, i) => {
+      item.style.setProperty("--d", `${Math.min(i, 5) * 60}ms`);
+    });
+  });
+
+  const observador = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((e) => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add("is-in");
+        observador.unobserve(e.target);
+      });
+    },
+    { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+  );
+  alvos.forEach((el) => observador.observe(el));
 }
 
 /* ---------- Formulário: abre o WhatsApp com a mensagem pronta ---------- */
@@ -228,7 +289,9 @@ document.getElementById("ano").textContent = new Date().getFullYear();
 iniciarWhatsApp();
 iniciarContatosOpcionais();
 iniciarCabecalho();
+iniciarSecaoAtiva();
 iniciarBotaoFlutuante();
+iniciarEntradas();
 iniciarFormulario();
 iniciarDepoimentos();
 iniciarDicas();

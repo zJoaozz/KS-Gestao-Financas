@@ -5,19 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>KS Gestão e Finanças | Organização financeira para MEIs, pequenos e médios negócios</title>
   <meta name="description" content="Organização financeira, controle de receitas e despesas, planilhas e apoio ao MEI. Atendimento direto pelo WhatsApp com Kirally Melo.">
-  <meta name="theme-color" content="#081631">
+  <meta name="theme-color" content="#061127">
 
   <meta property="og:type" content="website">
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="KS Gestão e Finanças">
   <meta property="og:description" content="Organização financeira e apoio para MEIs, pequenos e médios negócios.">
 
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23081631'/%3E%3Ctext x='32' y='42' font-size='28' font-weight='700' text-anchor='middle' fill='%23cfae74' font-family='sans-serif'%3EKS%3C/text%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061127'/%3E%3Ctext x='32' y='42' font-size='28' font-weight='700' text-anchor='middle' fill='%23cfae74' font-family='serif'%3EKS%3C/text%3E%3C/svg%3E">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Marca que o JS está ativo: sem ele, nada depende da animação de entrada -->
+  <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
@@ -45,10 +48,7 @@
   <header class="site-header" id="topo">
     <div class="container site-header__inner">
       <a class="brand" href="#inicio" aria-label="KS Gestão e Finanças, início">
-        <svg class="brand__logo" viewBox="0 0 48 48" aria-hidden="true">
-          <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-          <text x="24" y="30" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="18" fill="currentColor">KS</text>
-        </svg>
+        <span class="brand__mark" aria-hidden="true">KS</span>
         <span class="brand__name">KS Gestão e Finanças</span>
       </a>
 
@@ -76,36 +76,59 @@
   <main id="conteudo">
 
     <!-- ============ INÍCIO ============ -->
-    <section class="hero section--dark" id="inicio">
-      <div class="hero__grid" aria-hidden="true"></div>
-
-      <svg class="hero__chart" viewBox="0 0 1200 520" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <defs>
-          <linearGradient id="chartGrad" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0">
-            <stop offset="0" stop-color="#3a63c9"/>
-            <stop offset="0.7" stop-color="#4d7cf0"/>
-            <stop offset="1" stop-color="#cfae74"/>
-          </linearGradient>
-        </defs>
-        <path class="hero__chart-line"
-              d="M0 470 L150 425 L270 445 L410 350 L530 375 L670 265 L790 295 L950 165 L1070 185 L1190 55"/>
-      </svg>
+    <section class="hero" id="inicio">
+      <div class="hero__rules" aria-hidden="true"></div>
+      <div class="hero__glow" aria-hidden="true"></div>
 
       <div class="container hero__inner">
-        <h1 class="hero__title">Organização financeira e apoio para MEIs, pequenos e médios negócios</h1>
-        <p class="hero__lead">Ajudamos empreendedores a organizar suas finanças, controlar despesas e tomar decisões com mais segurança.</p>
-        <div class="hero__actions">
-          <a class="btn btn--gold" data-wa href="#contato" target="_blank" rel="noopener">
-            <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
-            Falar no WhatsApp
-          </a>
-          <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
+        <div class="hero__text">
+          <h1 class="hero__title">Organização financeira e apoio para MEIs, pequenos e médios negócios</h1>
+          <p class="hero__lead">Ajudamos empreendedores a organizar suas finanças, controlar despesas e tomar decisões com mais segurança.</p>
+          <div class="hero__actions">
+            <a class="btn btn--gold" data-wa href="#contato" target="_blank" rel="noopener">
+              <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
+              Falar no WhatsApp
+            </a>
+            <a class="btn btn--ghost" href="#servicos">Ver serviços</a>
+          </div>
         </div>
+
+        <!-- Figura decorativa: folha de razão com a linha de evolução -->
+        <figure class="ledger-sheet" aria-hidden="true">
+          <span class="ledger-sheet__tick ledger-sheet__tick--tl"></span>
+          <span class="ledger-sheet__tick ledger-sheet__tick--bl"></span>
+          <svg class="ledger-sheet__svg" viewBox="0 0 420 300" preserveAspectRatio="none" focusable="false">
+            <defs>
+              <linearGradient id="v2Line" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="420" y2="0">
+                <stop offset="0" stop-color="#4d7cf0"/>
+                <stop offset="0.65" stop-color="#8aa6f5"/>
+                <stop offset="1" stop-color="#cfae74"/>
+              </linearGradient>
+              <linearGradient id="v2Area" gradientUnits="userSpaceOnUse" x1="0" y1="40" x2="0" y2="300">
+                <stop offset="0" stop-color="#4d7cf0" stop-opacity="0.26"/>
+                <stop offset="1" stop-color="#4d7cf0" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+
+            <g class="ledger-sheet__rules">
+              <path d="M0 60h420M0 120h420M0 180h420M0 240h420"/>
+            </g>
+
+            <path class="ledger-sheet__area"
+                  d="M0 252 L70 224 L140 236 L210 168 L280 186 L350 130 L420 96 L420 300 L0 300 Z"/>
+            <path class="ledger-sheet__line"
+                  d="M0 252 L70 224 L140 236 L210 168 L280 186 L350 130 L420 96"/>
+          </svg>
+          <span class="ledger-sheet__bars">
+            <i style="--h:26%"></i><i style="--h:50%"></i><i style="--h:37%"></i>
+            <i style="--h:72%"></i><i style="--h:58%"></i><i style="--h:100%"></i>
+          </span>
+        </figure>
       </div>
     </section>
 
     <!-- Faixa de confiança -->
-    <section class="strip section--dark" aria-label="Diferenciais">
+    <section class="strip" aria-label="Diferenciais">
       <ul class="container strip__list">
         <li class="strip__item">
           <svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
@@ -123,19 +146,16 @@
     </section>
 
     <!-- ============ SOBRE ============ -->
-    <section class="section section--light" id="sobre" aria-labelledby="sobre-titulo">
+    <section class="section section--paper" id="sobre" aria-labelledby="sobre-titulo">
       <div class="container about">
-        <div class="about__text">
-          <h2 id="sobre-titulo">Sobre</h2>
+        <div class="about__text reveal">
+          <h2 id="sobre-titulo" class="display">Sobre</h2>
           <p>Meu nome é Kirally De Sousa Melo, sou estudante de Ciências Contábeis e ajudo MEIs, pequenos e médios empreendedores na organização financeira, controle de receitas e despesas, elaboração de planilhas e apoio administrativo.</p>
           <p>O atendimento é voltado para quem empreende em pequena escala e precisa de alguém próximo para colocar as contas em ordem.</p>
         </div>
 
-        <figure class="signature-card">
-          <svg class="signature-card__logo" viewBox="0 0 48 48" aria-hidden="true">
-            <circle cx="24" cy="24" r="22.5" fill="none" stroke="currentColor" stroke-width="1.5"/>
-            <text x="24" y="30" text-anchor="middle" font-family="Manrope, sans-serif" font-weight="800" font-size="18" fill="currentColor">KS</text>
-          </svg>
+        <figure class="signature-card reveal" style="--d:120ms">
+          <span class="signature-card__mark" aria-hidden="true">KS</span>
           <p class="signature-card__name">Kirally Melo</p>
           <figcaption class="signature-card__role">Estudante de Ciências Contábeis</figcaption>
         </figure>
@@ -143,73 +163,81 @@
     </section>
 
     <!-- ============ SERVIÇOS ============ -->
-    <section class="section section--dark" id="servicos" aria-labelledby="servicos-titulo">
+    <section class="section section--ink" id="servicos" aria-labelledby="servicos-titulo">
       <div class="container">
-        <div class="section-head">
-          <h2 id="servicos-titulo">Serviços</h2>
+        <div class="section-head reveal">
+          <h2 id="servicos-titulo" class="display">Serviços</h2>
           <p>Apoio financeiro e administrativo pensado para a rotina de quem empreende.</p>
         </div>
 
         <ul class="ledger">
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">01</span>
+            <div class="ledger__body">
               <h3>Organização financeira</h3>
               <p>Separar o dinheiro da empresa (CNPJ) do pessoal (Pessoa física) e deixar as contas em ordem.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-wallet"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">02</span>
+            <div class="ledger__body">
               <h3>Controle de receitas e despesas</h3>
               <p>Registro do que entra e do que sai, para você saber onde está o seu dinheiro.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-swap"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">03</span>
+            <div class="ledger__body">
               <h3>Fluxo de caixa</h3>
               <p>Visão clara do saldo atual e do que ainda vai entrar e sair nas próximas semanas.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-trend"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-table"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">04</span>
+            <div class="ledger__body">
               <h3>Planilhas financeiras personalizadas</h3>
               <p>Modelos feitos para o seu tipo de negócio e simples de preencher no dia a dia.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-table"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">05</span>
+            <div class="ledger__body">
               <h3>Apoio ao MEI</h3>
               <p>Orientação sobre a rotina e as obrigações de quem é microempreendedor individual.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-briefcase"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-filecheck"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">06</span>
+            <div class="ledger__body">
               <h3>Declaração Anual do MEI</h3>
               <p>Ajuda para preparar e entregar a declaração dentro do prazo.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-filecheck"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">07</span>
+            <div class="ledger__body">
               <h3>Organização de documentos</h3>
               <p>Notas, comprovantes e recibos guardados de um jeito que você encontra quando precisar.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-folder"/></svg>
           </li>
-          <li class="ledger__item">
-            <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-clipboard"/></svg></span>
-            <div>
+          <li class="ledger__item reveal">
+            <span class="ledger__index" aria-hidden="true">08</span>
+            <div class="ledger__body">
               <h3>Apoio administrativo para pequenos negócios</h3>
               <p>Suporte nas tarefas de escritório que tomam o seu tempo.</p>
             </div>
+            <svg class="icon ledger__icon" aria-hidden="true"><use href="#i-clipboard"/></svg>
           </li>
         </ul>
 
-        <div class="services-cta">
+        <div class="services-cta reveal">
           <p>Não encontrou o que procura? Conte a sua situação e vamos ver como ajudar.</p>
           <a class="btn btn--gold" data-wa href="#contato" target="_blank" rel="noopener">
             <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
@@ -220,36 +248,35 @@
     </section>
 
     <!-- ============ REDES SOCIAIS ============ -->
-    <section class="section section--light" id="redes-sociais" aria-labelledby="redes-titulo">
+    <section class="section section--paper" id="redes-sociais" aria-labelledby="redes-titulo">
       <div class="container">
-        <div class="section-head">
-          <h2 id="redes-titulo">Gestão de Redes Sociais</h2>
+        <div class="section-head reveal">
+          <h2 id="redes-titulo" class="display">Gestão de Redes Sociais</h2>
           <p>Além do apoio financeiro e administrativo, também ajudamos sua empresa a fortalecer sua presença digital.</p>
         </div>
 
         <div class="social">
-          <div class="social__list">
-            <h3>O que fazemos</h3>
-            <ul class="checklist">
-              <li><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span>Planejamento de conteúdo para Instagram, Facebook e WhatsApp Business</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg><span>Criação de calendário de postagens</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span>Gestão e organização das redes sociais</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg><span>Divulgação de produtos, promoções e serviços</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg><span>Atendimento básico e acompanhamento de mensagens</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg><span>Análise de desempenho das publicações</span></li>
-              <li><svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg><span>Estratégias para aumentar o alcance e atrair novos clientes</span></li>
-            </ul>
-          </div>
-
-          <aside class="social__highlight">
-            <h3>Mais tempo para você cuidar do seu negócio</h3>
-            <p>Enquanto cuidamos da organização financeira e da presença digital da sua empresa, você ganha mais tempo para focar nas vendas, no atendimento aos clientes e no crescimento do seu negócio.</p>
-          </aside>
+          <h3 class="social__title reveal">O que fazemos</h3>
+          <ul class="checklist">
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span><span>Planejamento de conteúdo para Instagram, Facebook e WhatsApp Business</span></li>
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span><span>Criação de calendário de postagens</span></li>
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span><span>Gestão e organização das redes sociais</span></li>
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg></span><span>Divulgação de produtos, promoções e serviços</span></li>
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span><span>Atendimento básico e acompanhamento de mensagens</span></li>
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-trend"/></svg></span><span>Análise de desempenho das publicações</span></li>
+            <li class="reveal"><span class="checklist__mark"><svg class="icon" aria-hidden="true"><use href="#i-megaphone"/></svg></span><span>Estratégias para aumentar o alcance e atrair novos clientes</span></li>
+          </ul>
         </div>
 
-        <p class="social__mission">Nosso objetivo é unir gestão financeira e marketing digital para ajudar sua empresa a crescer de forma organizada, profissional e sustentável.</p>
+        <aside class="social__highlight reveal">
+          <span class="social__highlight-tick" aria-hidden="true"></span>
+          <h3>Mais tempo para você cuidar do seu negócio</h3>
+          <p>Enquanto cuidamos da organização financeira e da presença digital da sua empresa, você ganha mais tempo para focar nas vendas, no atendimento aos clientes e no crescimento do seu negócio.</p>
+        </aside>
 
-        <div class="services-cta">
+        <p class="social__mission reveal">Nosso objetivo é unir gestão financeira e marketing digital para ajudar sua empresa a crescer de forma organizada, profissional e sustentável.</p>
+
+        <div class="services-cta reveal">
           <p>Quer colocar as finanças e as redes sociais da sua empresa em ordem?</p>
           <a class="btn btn--gold" data-wa href="#contato" target="_blank" rel="noopener">
             <svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg>
@@ -260,38 +287,38 @@
     </section>
 
     <!-- ============ COMO FUNCIONA ============ -->
-    <section class="section section--light" id="como-funciona" aria-labelledby="como-titulo">
+    <section class="section section--mist" id="como-funciona" aria-labelledby="como-titulo">
       <div class="container">
-        <div class="section-head">
-          <h2 id="como-titulo">Como funciona</h2>
+        <div class="section-head reveal">
+          <h2 id="como-titulo" class="display">Como funciona</h2>
           <p>Do primeiro contato ao acompanhamento, em quatro passos.</p>
         </div>
 
         <ol class="steps">
-          <li class="step">
-            <span class="step__num" aria-hidden="true">1</span>
-            <div>
+          <li class="step reveal">
+            <span class="step__num display" aria-hidden="true">01</span>
+            <div class="step__body">
               <h3>Você entra em contato</h3>
               <p>Chame pelo WhatsApp ou preencha o formulário.</p>
             </div>
           </li>
-          <li class="step">
-            <span class="step__num" aria-hidden="true">2</span>
-            <div>
+          <li class="step reveal">
+            <span class="step__num display" aria-hidden="true">02</span>
+            <div class="step__body">
               <h3>Analisamos a situação do seu negócio</h3>
               <p>Entendo suas dificuldades financeiras, administrativas e operacionais para identificar oportunidades de melhoria.</p>
             </div>
           </li>
-          <li class="step">
-            <span class="step__num" aria-hidden="true">3</span>
-            <div>
+          <li class="step reveal">
+            <span class="step__num display" aria-hidden="true">03</span>
+            <div class="step__body">
               <h3>Você ganha tempo para focar no crescimento</h3>
               <p>Assumo a organização financeira e os controles necessários para que você possa dedicar mais atenção aos clientes e às vendas.</p>
             </div>
           </li>
-          <li class="step">
-            <span class="step__num" aria-hidden="true">4</span>
-            <div>
+          <li class="step reveal">
+            <span class="step__num display" aria-hidden="true">04</span>
+            <div class="step__body">
               <h3>Acompanhamento contínuo e atualizações importantes</h3>
               <p>Mantenho você informado sobre mudanças tributárias, obrigações e novidades que possam impactar o seu negócio, além de acompanhar a evolução da sua organização financeira.</p>
             </div>
@@ -301,10 +328,10 @@
     </section>
 
     <!-- ============ DEPOIMENTOS (aparece quando houver itens em script.js) ============ -->
-    <section class="section section--mist" id="depoimentos" aria-labelledby="depoimentos-titulo" hidden>
+    <section class="section section--paper" id="depoimentos" aria-labelledby="depoimentos-titulo" hidden>
       <div class="container">
         <div class="section-head">
-          <h2 id="depoimentos-titulo">Depoimentos</h2>
+          <h2 id="depoimentos-titulo" class="display">Depoimentos</h2>
           <p>O que dizem os clientes atendidos.</p>
         </div>
         <div class="quotes" id="depoimentos-lista"></div>
@@ -312,10 +339,10 @@
     </section>
 
     <!-- ============ DICAS (aparece quando houver itens em script.js) ============ -->
-    <section class="section section--light" id="dicas" aria-labelledby="dicas-titulo" hidden>
+    <section class="section section--paper" id="dicas" aria-labelledby="dicas-titulo" hidden>
       <div class="container">
         <div class="section-head">
-          <h2 id="dicas-titulo">Dicas financeiras</h2>
+          <h2 id="dicas-titulo" class="display">Dicas financeiras</h2>
           <p>Conteúdo curto para organizar melhor o seu negócio.</p>
         </div>
         <div class="tips" id="dicas-lista"></div>
@@ -323,29 +350,30 @@
     </section>
 
     <!-- ============ CONTATO ============ -->
-    <section class="section section--dark" id="contato" aria-labelledby="contato-titulo">
+    <section class="section section--ink" id="contato" aria-labelledby="contato-titulo">
+      <div class="hero__rules hero__rules--soft" aria-hidden="true"></div>
       <div class="container contact">
-        <div class="contact__info">
-          <h2 id="contato-titulo">Vamos conversar sobre o seu negócio</h2>
+        <div class="contact__info reveal">
+          <h2 id="contato-titulo" class="display">Vamos conversar sobre o seu negócio</h2>
           <p>Mande uma mensagem contando o que você precisa. A resposta vem direto pelo WhatsApp.</p>
 
           <ul class="contact__list">
             <li>
-              <span class="ledger__icon"><svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
+              <span class="contact__icon"><svg class="icon icon--fill" aria-hidden="true"><use href="#i-whatsapp"/></svg></span>
               <a data-wa href="#" target="_blank" rel="noopener">
                 <span class="contact__label">WhatsApp</span>
                 <strong data-wa-display>(86) 98816-4496</strong>
               </a>
             </li>
             <li hidden data-contact-instagram>
-              <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+              <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></span>
               <a href="#" target="_blank" rel="noopener">
                 <span class="contact__label">Instagram</span>
                 <strong data-instagram-display></strong>
               </a>
             </li>
             <li hidden data-contact-email>
-              <span class="ledger__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+              <span class="contact__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
               <a href="#">
                 <span class="contact__label">E-mail</span>
                 <strong data-email-display></strong>
@@ -354,8 +382,8 @@
           </ul>
         </div>
 
-        <form class="form" id="form-contato" novalidate>
-          <h3 class="form__title">Envie sua mensagem</h3>
+        <form class="form reveal" id="form-contato" novalidate style="--d:100ms">
+          <h3 class="form__title display">Envie sua mensagem</h3>
 
           <div class="field">
             <label for="nome">Seu nome</label>
