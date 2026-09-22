@@ -115,23 +115,32 @@ a { color: inherit; }
 .section { position: relative; padding-block: clamp(3.5rem, 8vw, 7.5rem); }
 
 /* ---------- Tipografia ---------- */
+/* .display continua servindo os detalhes decorativos em serifa
+   (numerais dos passos, assinatura, citações), não os títulos. */
 .display {
   font-family: var(--display);
   font-weight: 400;
   letter-spacing: -0.005em;
 }
 
-h1, h2 { font-weight: 400; }
-h3 {
-  font-size: 1.06rem;
-  font-weight: 700;
-  line-height: 1.32;
-  letter-spacing: -0.012em;
+/* Títulos na fonte da marca. As variantes com .display existem porque
+   alguns títulos ainda carregam a classe no HTML. */
+h1, h2, h3,
+h1.display, h2.display, h3.display {
+  font-family: var(--font);
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-h2.display {
-  font-size: clamp(2.1rem, 1.35rem + 3.2vw, 3.5rem);
-  line-height: 1.06;
+h2, h2.display {
+  font-size: clamp(1.75rem, 1.2rem + 2.2vw, 2.6rem);
+  line-height: 1.15;
+}
+h3, h3.display {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 /* Filete dourado curto acima de cada título de seção */
@@ -422,12 +431,11 @@ html.menu-open { overflow: hidden; }
 .hero__text { min-width: 0; }
 
 .hero__title {
-  font-family: var(--display);
-  font-weight: 400;
-  max-width: 13em;
-  font-size: clamp(2.35rem, 1.2rem + 5.4vw, 4.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.018em;
+  max-width: 16em;
+  font-size: clamp(2.15rem, 1.1rem + 4.6vw, 4.1rem);
+  line-height: 1.07;
+  letter-spacing: -0.022em;
+  word-spacing: 0.05em;
 }
 .hero__lead {
   max-width: 33rem;
@@ -801,11 +809,10 @@ html.menu-open { overflow: hidden; }
 }
 .social__highlight h3 {
   max-width: 24rem;
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.2rem);
-  line-height: 1.12;
-  letter-spacing: -0.01em;
+  font-size: clamp(1.3rem, 1.1rem + 0.9vw, 1.7rem);
+  font-weight: 800;
+  line-height: 1.22;
+  letter-spacing: -0.02em;
   color: var(--gold);
 }
 .social__highlight p {
@@ -960,7 +967,8 @@ html.menu-open { overflow: hidden; }
   color: var(--ink);
   border-top: 3px solid var(--gold);
 }
-.form__title { font-size: clamp(1.45rem, 1.2rem + 1vw, 1.85rem); line-height: 1.15; margin-bottom: 1.5rem; }
+/* h3.form__title para vencer h3.display, já que o HTML ainda traz a classe */
+h3.form__title { font-size: 1.25rem; line-height: 1.3; margin-bottom: 1.25rem; }
 
 .field { margin-bottom: 1.15rem; }
 .field label {
