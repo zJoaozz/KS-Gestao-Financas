@@ -228,6 +228,7 @@ h3, h3.display {
 
 .brand {
   min-width: 0;
+  min-height: 44px;              /* alvo de toque: o monograma sozinho tem 38px */
   display: inline-flex;
   align-items: center;
   gap: 0.7rem;
@@ -957,7 +958,8 @@ html.menu-open { overflow: hidden; }
   border: 1px solid var(--gold-line);
   color: var(--gold);
 }
-.contact__list a { display: grid; min-width: 0; line-height: 1.3; text-decoration: none; }
+/* min-height como alvo de toque: rótulo + número somam 42px */
+.contact__list a { display: grid; align-content: center; min-width: 0; min-height: 44px; line-height: 1.3; text-decoration: none; }
 .contact__label {
   font-size: 0.76rem;
   font-weight: 700;
